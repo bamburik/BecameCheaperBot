@@ -22,7 +22,8 @@ public class SerbianMessages implements Messages {
                 "Imam podršku za 3 jezika: srpski, engleski i ruski. Koristite komandu /set_language da izaberete jezik.\n\n" +
                 "Moja funkcionalnost je dostupna uz pretplatu. Možete saznati svoj poslednji dan pretplate pomoću komande /get_the_last_day_of_subscription. Prvi put kada stupite u interakciju sa mnom, dočekali ste nedelju dana dobrodošlice. Da biste obnovili pretplatu, koristite komandu /buy_subscription ili unesite promo kod pomoću komande /enter_promo.\n\n" +
                 "O promo kodovima. Možete ih sami generisati \ud83d\ude42 pomoću komande /generate_promo. Ali promo kod koji ste generisali mora da koristi drugi korisnik. Čim primeni promo kod, i vi i on dobićete jednu nedelju pretplate. Ne možete koristiti promo kod koji ste sami generisali. Promo kodovi su jednokratni i ne mogu se ponovo koristiti." +
-                "Ne možete da primenite novi promo kod drugog korisnika ako ste već uspešno primenili promo kod ovog korisnika. Takođe, ako ste uspešno primenili promo kod drugog korisnika, onda ovaj korisnik ne može primeniti promo kod koji vi generišete.";
+                "Ne možete da primenite novi promo kod drugog korisnika ako ste već uspešno primenili promo kod ovog korisnika. Takođe, ako ste uspešno primenili promo kod drugog korisnika, onda ovaj korisnik ne može primeniti promo kod koji vi generišete.\n\n" +
+                "Slobodno pošaljite imejl postao.jeftiniji@gmail.com ako nađete grešku ili ako vaš željeni sajt još uvek nije podržan. Programer će dodati podršku za vaš sajt \ud83d\ude42";
     }
 
     @Override
