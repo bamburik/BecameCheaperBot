@@ -18,7 +18,7 @@ public interface Messages {
     String getLanguageIsSelectedMessage();
     String getFollowingLinksAreInvalidMessageFormat();
     String getIsNotAValidLink();
-    String getLinkOfThatSiteIsNotSupportedMessageFormat();
+    String getLinkOfThatSiteIsNotSupportedMessage();
     String getTheLastDayOfSubscriptionMessageFormat();
     String getMaxCountOfLinksMessage();
     String getOneMonthMessage();

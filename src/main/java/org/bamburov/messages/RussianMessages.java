@@ -8,7 +8,7 @@ public class RussianMessages implements Messages {
 
     @Override
     public String getSetLinksMessage() {
-        return "Введите ссылки на товары, которые вы хотели бы купить дешевле.\nПока я принимаю только ссылки сайтов Ekupi, Tehnomanija и Gigatron.\nКаждая ссылка должна начинаться с новой строки.";
+        return "Введите ссылки на товары, которые вы хотели бы купить дешевле.\nКаждая ссылка должна начинаться с новой строки.\nВы можете просмотреть список поддерживаемых сайтов, используя команду /show_acceptable_sites";
     }
 
     @Override
@@ -92,8 +92,8 @@ public class RussianMessages implements Messages {
     }
 
     @Override
-    public String getLinkOfThatSiteIsNotSupportedMessageFormat() {
-        return " ссылки на этот сайт не поддерживаются. Список поддерживаемых сайтов - %s";
+    public String getLinkOfThatSiteIsNotSupportedMessage() {
+        return " ссылки на этот сайт не поддерживаются. Вы можете просмотреть список поддерживаемых сайтов, используя команду /show_acceptable_sites";
     }
 
     @Override

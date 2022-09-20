@@ -8,7 +8,7 @@ public class SerbianMessages implements Messages {
 
     @Override
     public String getSetLinksMessage() {
-        return "Unesite veze proizvoda za koje želite da budu jeftiniji.\nSvaka veza treba da počinje novom linijom.\nZa sada su validne samo Ekupi, Tehnomanija i Gigatron veze.";
+        return "Unesite veze proizvoda za koje želite da budu jeftiniji.\nSvaka veza treba da počinje novom linijom.\nMožete pogledati listu podržanih sajtova pomoću komande /show_acceptable_sites";
     }
 
     @Override
@@ -92,8 +92,8 @@ public class SerbianMessages implements Messages {
     }
 
     @Override
-    public String getLinkOfThatSiteIsNotSupportedMessageFormat() {
-        return " veza tog sajta nije podržana. Podržani sajtovi su %s";
+    public String getLinkOfThatSiteIsNotSupportedMessage() {
+        return " veza tog sajta nije podržana. Možete pogledati listu podržanih sajtova pomoću komande /show_acceptable_sites";
     }
 
     @Override

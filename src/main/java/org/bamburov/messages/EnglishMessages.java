@@ -8,7 +8,7 @@ public class EnglishMessages implements Messages {
 
     @Override
     public String getSetLinksMessage() {
-        return "Enter products links which you want to be cheaper.\nEach link should start with new line.\nFor now only Ekupi, Tehnomanija and Gigatron links are valid.";
+        return "Enter products links which you want to be cheaper.\nEach link should start with new line.\nYou can view the list of supported sites using the /show_acceptable_sites command";
     }
 
     @Override
@@ -92,8 +92,8 @@ public class EnglishMessages implements Messages {
     }
 
     @Override
-    public String getLinkOfThatSiteIsNotSupportedMessageFormat() {
-        return " link of that site is not supported. Supported sites are %s";
+    public String getLinkOfThatSiteIsNotSupportedMessage() {
+        return " link of that site is not supported. You can view the list of supported sites using the /show_acceptable_sites command";
     }
 
     @Override

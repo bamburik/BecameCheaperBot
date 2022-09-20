@@ -204,7 +204,7 @@ public class BecameCheaperBot extends TelegramLongPollingBot {
         }
         if (Props.isChromeInContainer()) {
             try {
-                driver = new RemoteWebDriver(new URL("http://127.0.0.1:4444/wd/hub"), DesiredCapabilities.chrome());
+                driver = new RemoteWebDriver(new URL(Props.getChromeDriverUrl() + ":4444/wd/hub"), DesiredCapabilities.chrome());
             }
             catch (MalformedURLException e) {
                 e.printStackTrace();
@@ -219,12 +219,15 @@ public class BecameCheaperBot extends TelegramLongPollingBot {
         List<Product> desiredProducts = new ArrayList<>();
         StringBuilder errorMessages = new StringBuilder();
         for (String link : links) {
+            if (link.trim().equals("")) {
+                continue;
+            }
             // Validate link
             try {
                 new URL(link).toURI();
                 if (!isLinkValid(link)) {
                     allLinksValid = false;
-                    errorMessages.append(link + String.format(messages.getLinkOfThatSiteIsNotSupportedMessageFormat(), "Ekupi, Tehnomanija, Gigatron") + "\n");
+                    errorMessages.append(link + String.format(messages.getLinkOfThatSiteIsNotSupportedMessage(), "Ekupi, Tehnomanija, Gigatron") + "\n");
                     continue;
                 }
                 driver.get(link);

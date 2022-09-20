@@ -9,6 +9,9 @@ public class Props {
     private static boolean chromeInContainer;
     @Getter
     @Setter
+    private static String chromeDriverUrl;
+    @Getter
+    @Setter
     private static String botName;
     @Getter
     @Setter
