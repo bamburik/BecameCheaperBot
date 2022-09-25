@@ -18,6 +18,15 @@ public class Props {
     private static String botToken;
     @Getter
     @Setter
+    private static String chatIdOfRecipient;
+    @Getter
+    @Setter
+    private static String feedbackBotName;
+    @Getter
+    @Setter
+    private static String feedbackBotToken;
+    @Getter
+    @Setter
     private static String mongoHost;
     @Getter
     @Setter

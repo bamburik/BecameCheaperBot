@@ -23,7 +23,7 @@ public class EnglishMessages implements Messages {
                 "My functionality is available by subscription. You can find out your last subscription day using the /get_the_last_day_of_subscription command. The first time you interact with me, you are given a welcome week. To renew your subscription, use the /buy_subscription command or enter a promo code using the /enter_promo command.\n\n" +
                 "About promo codes. You can generate them yourself \ud83d\ude42 using the /generate_promo command. But the promo code you generated must be used by another user. As soon as he applies the promo code, both you and he will receive one week of subscription. You cannot use a promo code that you have generated yourself. Promo codes are one-time use and cannot be reused." +
                 "You cannot apply a new promo code from another user if you have already successfully applied a promo code from this user. Also, if you successfully applied a promo code from another user, then this user cannot apply the promo code that you generate.\n\n" +
-                "Feel free to email postao.jeftiniji@gmail.com if you find a bug, or if your desired site is not yet supported. The developer will add support for your site \ud83d\ude42";
+                "Feel free to email postao.jeftiniji@gmail.com or use /send_feedback for providing feedback. For example if you found a bug, or if your desired site is not yet supported. The developer will add support for your site \ud83d\ude42";
     }
 
     @Override
@@ -169,5 +169,15 @@ public class EnglishMessages implements Messages {
     @Override
     public String getCheckingLinksMessage() {
         return "Checking links...";
+    }
+
+    @Override
+    public String getProvideFeedbackMessage() {
+        return "Please, provide feedback";
+    }
+
+    @Override
+    public String getThanksForFeedbackMessage() {
+        return "Thank you for your feedback!";
     }
 }

@@ -4,6 +4,7 @@ import com.mongodb.BasicDBObject;
 import com.mongodb.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
+import com.pengrad.telegrambot.TelegramBot;
 import org.bamburov.config.Props;
 import org.bamburov.messages.EnglishMessages;
 import org.bamburov.messages.Messages;
@@ -110,6 +111,9 @@ public class BecameCheaperBot extends TelegramLongPollingBot {
         else if (update.getMessage().getText().equals("/show_acceptable_sites")) {
             sendMessage(chatId, getAcceptableSites());
         }
+        else if (update.getMessage().getText().equals("/send_feedback")) {
+            onSendFeedbackCommand(chatId);
+        }
         else {
             Document user = (Document) users.find(new Document().append("chatId", chatId)).first();
             // TODO check if user is not null
@@ -128,6 +132,9 @@ public class BecameCheaperBot extends TelegramLongPollingBot {
             }
             else if (userState.equals("wait for paypal email")) {
                 afterPaypalEmailEntered(chatId, update.getMessage().getText());
+            }
+            else if (userState.equals("wait for feedback")) {
+                afterFeedbackEntered(chatId, update.getMessage().getText());
             }
             else {
                 // TODO to fulfill
@@ -471,6 +478,28 @@ public class BecameCheaperBot extends TelegramLongPollingBot {
 
     private void onHelpCommand(String chatId) {
         sendMessage(chatId, messages.getHelpMessage());
+    }
+
+    private void onSendFeedbackCommand(String chatId) {
+        sendMessage(chatId, messages.getProvideFeedbackMessage());
+        users.updateOne(new Document().append("chatId", chatId),
+                new Document().append("$set", new Document().append("state", "wait for feedback")));
+    }
+
+    private void afterFeedbackEntered(String chatId, String feedback) {
+        users.updateOne(new Document().append("chatId", chatId),
+                new Document().append("$set", new Document().append("state", "no pending action")));
+        try {
+            TelegramBot bot = new TelegramBot(Props.getFeedbackBotToken());
+            com.pengrad.telegrambot.request.SendMessage request = new com.pengrad.telegrambot.request.SendMessage(Props.getChatIdOfRecipient(), "chatId - " + chatId + "\n" + feedback);
+            bot.execute(request);
+        }
+        catch (Throwable throwable) {
+            // ignore
+        }
+        finally {
+            sendMessage(chatId, messages.getThanksForFeedbackMessage());
+        }
     }
 
     private String generateRandomPromo() {

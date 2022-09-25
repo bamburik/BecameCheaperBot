@@ -48,6 +48,9 @@ public class Main {
             Props.setChromeDriverUrl(getFilePropertyOrSystemProperty(prop, "chromeDriverUrl"));
             Props.setBotName(getFilePropertyOrSystemProperty(prop, "bot.name"));
             Props.setBotToken(getFilePropertyOrSystemProperty(prop, "bot.token"));
+            Props.setChatIdOfRecipient(getFilePropertyOrSystemProperty(prop, "feedbackBot.chatIdOfRecipient"));
+            Props.setFeedbackBotName(getFilePropertyOrSystemProperty(prop, "feedbackBot.name"));
+            Props.setFeedbackBotToken(getFilePropertyOrSystemProperty(prop, "feedbackBot.token"));
             Props.setMongoHost(getFilePropertyOrSystemProperty(prop, "mongo.host"));
             Props.setMongoPort(Integer.parseInt(getFilePropertyOrSystemProperty(prop, "mongo.port")));
             Props.setPaypalUrl(getFilePropertyOrSystemProperty(prop, "paypal.url"));

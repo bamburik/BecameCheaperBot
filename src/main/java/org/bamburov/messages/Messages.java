@@ -34,4 +34,6 @@ public interface Messages {
     String getYourPromosMessageFormat();
     String getRetrievedPriceMessage();
     String getCheckingLinksMessage();
+    String getProvideFeedbackMessage();
+    String getThanksForFeedbackMessage();
 }
