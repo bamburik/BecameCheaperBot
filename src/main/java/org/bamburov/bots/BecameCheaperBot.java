@@ -245,7 +245,7 @@ public class BecameCheaperBot extends TelegramLongPollingBot {
                     currentPrice = Double.parseDouble(currentPriceStr.trim().replaceAll("[.]","").replace(',', '.').split("[ ]")[0]);
                 }
                 else if (link.startsWith("https://www.tehnomanija")) {
-                    currentPriceStr = driver.findElement(By.cssSelector(".product-price-web-contant .price")).getText();
+                    currentPriceStr = driver.findElement(By.cssSelector(".product-price-container .product-price-newprice")).getText();
                     currentPrice = Double.parseDouble(currentPriceStr.trim().replaceAll("[.]","").replace(',', '.').split("[ ]")[0]);
                 }
                 else if (link.startsWith("https://dijaspora.shop/")) {
@@ -297,15 +297,15 @@ public class BecameCheaperBot extends TelegramLongPollingBot {
                     currentPrice = Double.parseDouble(currentPriceStr.trim().replaceAll("[.]","").replace(',', '.').split("[ ]")[0]);
                 }
                 else if (link.startsWith("https://eplaneta.rs/")) {
-                    currentPriceStr = driver.findElement(By.cssSelector(".product-info-main [data-price-type='finalPrice']")).getAttribute("data-price-amount");
+                    currentPriceStr = driver.findElement(By.cssSelector(".product-info-main meta[itemprop='price']")).getAttribute("content");
                     currentPrice = Double.parseDouble(currentPriceStr.trim());
                 }
                 else if (link.startsWith("https://www.drtechno.rs/")) {
-                    currentPriceStr = driver.findElement(By.cssSelector(".product-info-main [data-price-type='finalPrice']")).getText();
+                    currentPriceStr = driver.findElement(By.cssSelector(".product-info-main meta[itemprop='price']")).getText();
                     currentPrice = Double.parseDouble(currentPriceStr.trim().replaceAll("[.]","").replace(',', '.').split("[ ]")[0]);
                 }
                 else if (link.startsWith("https://maxshop.rs/")) {
-                    currentPriceStr = driver.findElement(By.cssSelector(".product .product__price")).getText();
+                    currentPriceStr = driver.findElement(By.cssSelector(".product .product__price > :not(.old)")).getText();
                     currentPrice = Double.parseDouble(currentPriceStr.trim().split("[ ]")[0]);
                 }
                 else if (link.startsWith("https://www.tempo-tehnika.rs/")) {

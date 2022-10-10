@@ -33,6 +33,12 @@ public class Props {
     private static int mongoPort;
     @Getter
     @Setter
+    private static String mongoUsername;
+    @Getter
+    @Setter
+    private static String mongoPassword;
+    @Getter
+    @Setter
     private static String paypalUrl;
     @Getter
     @Setter

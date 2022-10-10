@@ -1,14 +1,10 @@
 package org.bamburov;
 
+import com.mongodb.*;
 import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
-import org.apache.commons.lang3.time.StopWatch;
 import org.bamburov.bots.BecameCheaperBot;
-import com.mongodb.MongoClient;
 import org.bamburov.config.Props;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import org.telegram.telegrambots.meta.TelegramBotsApi;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
@@ -16,16 +12,17 @@ import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.MalformedURLException;
-import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
-import java.util.concurrent.TimeUnit;
 
 
 public class Main {
     public static void main(String[] args) {
         setProperties();
-        MongoClient mongoClient = new MongoClient(Props.getMongoHost(), Props.getMongoPort());
+        List<MongoCredential> listOfCredentials = new ArrayList<>();
+        listOfCredentials.add(MongoCredential.createCredential(Props.getMongoUsername(), "admin", Props.getMongoPassword().toCharArray()));
+        MongoClient mongoClient = new MongoClient(new ServerAddress(Props.getMongoHost(), Props.getMongoPort()), listOfCredentials);
         createDbAndCollectionsIfAbsent(mongoClient);
         try {
             if (!Props.isChromeInContainer()) {
@@ -53,6 +50,8 @@ public class Main {
             Props.setFeedbackBotToken(getFilePropertyOrSystemProperty(prop, "feedbackBot.token"));
             Props.setMongoHost(getFilePropertyOrSystemProperty(prop, "mongo.host"));
             Props.setMongoPort(Integer.parseInt(getFilePropertyOrSystemProperty(prop, "mongo.port")));
+            Props.setMongoUsername(getFilePropertyOrSystemProperty(prop, "mongo.username"));
+            Props.setMongoPassword(getFilePropertyOrSystemProperty(prop, "mongo.password"));
             Props.setPaypalUrl(getFilePropertyOrSystemProperty(prop, "paypal.url"));
             Props.setPaypalBusinessClientId(getFilePropertyOrSystemProperty(prop, "paypal.businessClientId"));
             Props.setPaypalClientSecret(getFilePropertyOrSystemProperty(prop, "paypal.clientSecret"));
