@@ -62,12 +62,12 @@ public class EnglishMessages implements Messages {
     }
 
     @Override
-    public String getPromoIsAppliedSuccessfullyMessage() {
+    public String getPromoIsAppliedSuccessfullyMessageFormat() {
         return "Promo code was applied successfully. You received 1 more week for free! Now your the last day of subscription is %s";
     }
 
     @Override
-    public String getYourFriendSuccessfullyAppliedYourPromoMessageFormat() {
+    public String getYourFriendSuccessfullyAppliedYourPromoMessage() {
         return "Your friend applied your promo code successfully. You received 1 more week for free!";
     }
 
@@ -123,7 +123,7 @@ public class EnglishMessages implements Messages {
 
     @Override
     public String getBuySubscriptionMessage() {
-        return "For now only PayPal payment is available\\.\nPlease select payment period\\.\n1 month \\- €3\\.99\n3 months \\- ~€11\\.99~ €9\\.99\n6 months \\- ~€23\\.99~ €17\\.99";
+        return "For now only PayPal payment is available\\.\nPlease select payment period\\.\n1 month \\- €4\\.99\n3 months \\- ~€14\\.99~ €12\\.49\n6 months \\- ~€29\\.99~ €22\\.49";
     }
 
     @Override

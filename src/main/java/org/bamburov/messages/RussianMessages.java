@@ -62,13 +62,13 @@ public class RussianMessages implements Messages {
     }
 
     @Override
-    public String getPromoIsAppliedSuccessfullyMessage() {
+    public String getPromoIsAppliedSuccessfullyMessageFormat() {
         return "Промокод успешно применен! Вы получаете одну бесплатную неделю подписки. Теперь ваш последний день подписки - %s";
     }
 
     @Override
-    public String getYourFriendSuccessfullyAppliedYourPromoMessageFormat() {
-        return "Ваш друг %s успешно применил ваш промокод! Вы получаете одну бесплатную неделю подписки.";
+    public String getYourFriendSuccessfullyAppliedYourPromoMessage() {
+        return "Ваш друг успешно применил ваш промокод! Вы получаете одну бесплатную неделю подписки.";
     }
 
     @Override
@@ -123,7 +123,7 @@ public class RussianMessages implements Messages {
 
     @Override
     public String getBuySubscriptionMessage() {
-        return "Пока только PayPal роддерживается для оплаты подписки\\.\nВыберите период оплаты\\.\n1 месяц \\- €3\\.99\n3 месяца \\- ~€11\\.99~ €9\\.99\n6 месяцев \\- ~€23\\.99~ €17\\.99";
+        return "Пока только PayPal роддерживается для оплаты подписки\\.\nВыберите период оплаты\\.\n1 месяц \\- €4\\.99\n3 месяца \\- ~€14\\.99~ €12\\.49\n6 месяцев \\- ~€29\\.99~ €22\\.49";
     }
 
     @Override

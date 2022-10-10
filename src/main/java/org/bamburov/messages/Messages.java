@@ -12,8 +12,8 @@ public interface Messages {
     String getYouCantUsePromoThatWasGeneratedByYouMessage();
     String getYouAlreadyUsedPromoFromThatUserMessageFormat();
     String getYouUsePromoFromThatUserBecauseThatUserUsedThePromoGeneratedByYouMessageFormat();
-    String getPromoIsAppliedSuccessfullyMessage();
-    String getYourFriendSuccessfullyAppliedYourPromoMessageFormat();
+    String getPromoIsAppliedSuccessfullyMessageFormat();
+    String getYourFriendSuccessfullyAppliedYourPromoMessage();
     String getSelectLanguageMessage();
     String getLanguageIsSelectedMessage();
     String getFollowingLinksAreInvalidMessageFormat();

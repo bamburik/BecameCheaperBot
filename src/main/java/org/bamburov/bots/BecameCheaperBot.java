@@ -413,9 +413,9 @@ public class BecameCheaperBot extends TelegramLongPollingBot {
         addOneWeekSubscriptionFor(chatId);
         addOneWeekSubscriptionFor(promoFromUserChatId);
         String lastDayOfSubscription = ((Document)users.find(new Document().append("chatId", chatId)).first()).getString("lastDayOfSubscription");
-        sendMessage(chatId, messages.getPromoIsAppliedSuccessfullyMessage() + "\n" + String.format(messages.getTheLastDayOfSubscriptionMessageFormat(), lastDayOfSubscription));
+        sendMessage(chatId, String.format(messages.getPromoIsAppliedSuccessfullyMessageFormat(), lastDayOfSubscription));
         lastDayOfSubscription = ((Document)users.find(new Document().append("chatId", promoFromUserChatId)).first()).getString("lastDayOfSubscription");
-        sendMessage(promoFromUserChatId, messages.getYourFriendSuccessfullyAppliedYourPromoMessageFormat() + "\n" + String.format(messages.getTheLastDayOfSubscriptionMessageFormat(), lastDayOfSubscription));
+        sendMessage(promoFromUserChatId, messages.getYourFriendSuccessfullyAppliedYourPromoMessage() + "\n" + String.format(messages.getTheLastDayOfSubscriptionMessageFormat(), lastDayOfSubscription));
         users.updateOne(new Document().append("chatId", chatId),
                 new Document().append("$set", new Document().append("state", "no pending action")));
     }
@@ -466,14 +466,16 @@ public class BecameCheaperBot extends TelegramLongPollingBot {
         String invoiceLink = "";
         try {
             invoiceLink = PayPal.createInvoiceAndGetItsLink(enteredPaypalEmail, serviceName, totalAmount);
+            sendMessage(chatId, messages.getInvoiceIsGeneratedMessage(invoiceLink));
+            users.updateOne(new Document().append("chatId", chatId),
+                    new Document().append("$set", new Document().append("state", "no pending action")));
+            unpaidInvoices.insertOne(new Document().append("invoiceLink", invoiceLink).append("chatId", chatId).append("paymentPeriod", paymentDuration.substring(0,1)));
         }
         catch (Exception e) {
+            System.out.println("Message - " + e.getMessage());
+            e.printStackTrace();
             sendMessage(chatId, messages.getYouEnteredInvalidPaypalEmailMessage());
         }
-        sendMessage(chatId, messages.getInvoiceIsGeneratedMessage(invoiceLink));
-        users.updateOne(new Document().append("chatId", chatId),
-                new Document().append("$set", new Document().append("state", "no pending action")));
-        unpaidInvoices.insertOne(new Document().append("invoiceLink", invoiceLink).append("chatId", chatId).append("paymentPeriod", paymentDuration.substring(0,1)));
     }
 
     private void onHelpCommand(String chatId) {

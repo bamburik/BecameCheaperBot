@@ -62,12 +62,12 @@ public class SerbianMessages implements Messages {
     }
 
     @Override
-    public String getPromoIsAppliedSuccessfullyMessage() {
+    public String getPromoIsAppliedSuccessfullyMessageFormat() {
         return "Promo kod je uspešno primenjen. Dobili ste još 1 nedelju besplatno! Sada je vaš poslednji dan pretplate %s";
     }
 
     @Override
-    public String getYourFriendSuccessfullyAppliedYourPromoMessageFormat() {
+    public String getYourFriendSuccessfullyAppliedYourPromoMessage() {
         return "Vaš prijatelj je uspešno primenio vaš promo kod. Dobili ste još 1 nedelju besplatno!";
     }
 
@@ -123,7 +123,7 @@ public class SerbianMessages implements Messages {
 
     @Override
     public String getBuySubscriptionMessage() {
-        return "Za sada je dostupno samo PayPal plaćanje\\.\nMolimo izaberite period plaćanja\\.\n1 mesec \\- €3\\.99\n3 meseca \\- ~€11\\.99~ €9\\.99\n6 meseci \\- ~€23\\.99~ €17\\.99";
+        return "Za sada je dostupno samo PayPal plaćanje\\.\nMolimo izaberite period plaćanja\\.\n1 mesec \\- €4\\.99\n3 meseca \\- ~€14\\.99~ €12\\.49\n6 meseci \\- ~€29\\.99~ €22\\.49";
     }
 
     @Override
