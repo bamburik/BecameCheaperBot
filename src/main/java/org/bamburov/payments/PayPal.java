@@ -49,7 +49,7 @@ public class PayPal {
     public static String createDraftInvoiceBodyFormat = "{\n" +
             "  \"detail\": {\n" +
             "    \"invoice_number\": \"%s\",\n" +
-            "    \"currency_code\": \"USD\",\n" +
+            "    \"currency_code\": \"EUR\",\n" +
             "    \"payment_term\": {\n" +
             "      \"term_type\": \"NO_DUE_DATE\"\n" +
             "    }\n" +

@@ -452,15 +452,15 @@ public class BecameCheaperBot extends TelegramLongPollingBot {
         String serviceName = "";
         String paymentDuration = ((Document)users.find(new Document().append("chatId", chatId)).first()).getString("enteredPaymentDuration");
         if (paymentDuration.startsWith("1")) {
-            totalAmount = "3.99";
+            totalAmount = "4.99";
             serviceName = "1 month of bot subscription";
         }
         else if (paymentDuration.startsWith("3")) {
-            totalAmount = "9.99";
+            totalAmount = "12.49";
             serviceName = "3 months of bot subscription";
         }
         else if (paymentDuration.startsWith("6")) {
-            totalAmount = "17.99";
+            totalAmount = "22.49";
             serviceName = "6 months of bot subscription";
         }
         String invoiceLink = "";
